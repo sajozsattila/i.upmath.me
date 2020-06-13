@@ -18,15 +18,15 @@ interface RendererInterface
 	 * @param string $formula in latex
 	 * @return null
 	 */
-	public function run ($formula);
+	public function run(string $formula);
 
 	/**
 	 * @return string
 	 */
-	public function getSVG ();
+	public function getSVG();
 
 	/**
 	 * @return string
 	 */
-	public function getPNG ();
+	public function getPNG();
 }

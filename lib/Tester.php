@@ -2,7 +2,7 @@
 /**
  * Test infrastructure.
  *
- * @copyright 2015-2016 Roman Parpalak
+ * @copyright 2015-2020 Roman Parpalak
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @package   Upmath Latex Renderer
  * @link      https://i.upmath.me
@@ -10,9 +10,6 @@
 
 namespace S2\Tex;
 
-/**
- * Class Tester
- */
 class Tester
 {
 	private $srcTemplate = 'src/*.tex';
@@ -23,21 +20,14 @@ class Tester
 	 */
 	private $renderer;
 
-	/**
-	 * Tester constructor.
-	 *
-	 * @param RendererInterface $renderer
-	 * @param string            $srcTpl
-	 * @param string            $outDir
-	 */
-	public function __construct(RendererInterface $renderer, $srcTpl, $outDir)
+	public function __construct(RendererInterface $renderer, string $srcTpl, string $outDir)
 	{
 		$this->renderer    = $renderer;
 		$this->srcTemplate = $srcTpl;
 		$this->outDir      = $outDir;
 	}
 
-	public function run()
+	public function run(): void
 	{
 		$this->clearOutDir();
 
@@ -53,17 +43,12 @@ class Tester
 		}
 	}
 
-	/**
-	 * @param string $testFilename
-	 * @param string $extension
-	 * @param string $content
-	 */
-	private function saveResultFile($testFilename, $extension, $content)
+	private function saveResultFile(string $testFilename, string $extension, string $content): void
 	{
 		file_put_contents($this->outDir . basename($testFilename, '.tex') . '.' . $extension, $content);
 	}
 
-	private function clearOutDir()
+	private function clearOutDir(): void
 	{
 		foreach (glob($this->outDir . '*.png') as $outFile) {
 			unlink($outFile);

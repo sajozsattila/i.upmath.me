@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright 2014-2016 Roman Parpalak
+ * @copyright 2014-2020 Roman Parpalak
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @package   Upmath Latex Renderer
  * @link      https://i.upmath.me
@@ -13,13 +13,11 @@ use Symfony\Component\Process\Exception\ProcessTimedOutException;
 use Symfony\Component\Process\Process;
 
 /**
- * Class Renderer
- *
  * Runs Latex CLI.
  */
 class Renderer implements RendererInterface
 {
-	const SVG_PRECISION = 5;
+	private const SVG_PRECISION = 5;
 
 	/**
 	 * @var TemplaterInterface
@@ -57,20 +55,18 @@ class Renderer implements RendererInterface
 	private $png = '';
 
 	/**
-	 * Renderer constructor.
-	 *
 	 * @param TemplaterInterface $templater
 	 * @param string             $tmpDir
 	 * @param string             $latexCommand
 	 * @param string             $svgCommand
-	 * @param null               $pngCommand
+	 * @param string|null        $pngCommand
 	 */
 	public function __construct(
 		TemplaterInterface $templater,
-		$tmpDir,
-		$latexCommand,
-		$svgCommand,
-		$pngCommand = null
+		string $tmpDir,
+		string $latexCommand,
+		string $svgCommand,
+		?string $pngCommand = null
 	) {
 		$this->templater = $templater;
 
@@ -81,36 +77,21 @@ class Renderer implements RendererInterface
 		$this->pngCommand   = $pngCommand;
 	}
 
-	/**
-	 * @param bool $isDebug
-	 *
-	 * @return $this
-	 */
-	public function setIsDebug($isDebug)
+	public function setIsDebug(bool$isDebug): self
 	{
 		$this->isDebug = $isDebug;
 
 		return $this;
 	}
 
-	/**
-	 * @param LoggerInterface $logger
-	 *
-	 * @return $this
-	 */
-	public function setLogger(LoggerInterface $logger)
+	public function setLogger(LoggerInterface $logger): self
 	{
 		$this->logger = $logger;
 
 		return $this;
 	}
 
-	/**
-	 * @param string $formula
-	 *
-	 * @throws \Exception
-	 */
-	private function validateFormula($formula)
+	private function validateFormula(string $formula): void
 	{
 		foreach (['\\write', '\\input', '\\usepackage', '\\special'] as $disabledCommand) {
 			if (strpos($formula, $disabledCommand) !== false) {
@@ -118,7 +99,7 @@ class Renderer implements RendererInterface
 					$this->logger->error(sprintf('Forbidden command "%s": ', $disabledCommand), [$formula]);
 					$this->logger->error('Server vars: ', $_SERVER);
 				}
-				throw new \Exception('Forbidden commands.');
+				throw new \RuntimeException('Forbidden commands.');
 			}
 		}
 	}
@@ -129,7 +110,7 @@ class Renderer implements RendererInterface
 	 * @return null|void
 	 * @throws \Exception
 	 */
-	public function run($formula)
+	public function run(string $formula)
 	{
 		$this->validateFormula($formula);
 
@@ -166,6 +147,7 @@ class Renderer implements RendererInterface
 		if ($this->isDebug) {
 			echo '<pre>';
 			readfile($tmpName . '.log');
+			/** @noinspection ForgottenDebugOutputInspection */
 			var_dump('exitcode', $exitCode);
 			echo '</pre>';
 		}
@@ -252,6 +234,7 @@ class Renderer implements RendererInterface
 	{
 		if ($this->isDebug) {
 			echo '<pre>';
+			/** @noinspection ForgottenDebugOutputInspection */
 			var_dump($output);
 			echo '</pre>';
 		}
@@ -269,11 +252,7 @@ class Renderer implements RendererInterface
 		}
 	}
 
-	/**
-	 * @param string $svg
-	 * @param bool   $hasBaseline
-	 */
-	private function setSvgContent($svg, $hasBaseline)
+	private function setSvgContent(string $svg, bool $hasBaseline): void
 	{
 		// $svg = '...<!--start 19.8752 31.3399 -->...';
 
@@ -284,9 +263,7 @@ class Renderer implements RendererInterface
 
 		if ($hasStart && $hasBbox) {
 			// SVG contains info about image size and baseline position.
-			$rawHeight = $matchBbox[4];
-			$rawWidth  = $matchBbox[3];
-			$rawY      = $matchBbox[2];
+			[, , $rawY, $rawWidth, $rawHeight] = $matchBbox;
 
 			$rawStartY = $matchStart[2];
 
