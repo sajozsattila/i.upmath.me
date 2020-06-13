@@ -10,6 +10,8 @@
 
 namespace S2\Tex;
 
+use S2\Tex\Renderer\RendererInterface;
+
 class Tester
 {
 	private $srcTemplate = 'src/*.tex';
@@ -35,9 +37,11 @@ class Tester
 			$source = file_get_contents($testFilename);
 			$start  = microtime(1);
 
-			$this->renderer->run($source);
-			$this->saveResultFile($testFilename, 'svg', $this->renderer->getSVG());
-			$this->saveResultFile($testFilename, 'png', $this->renderer->getPNG());
+			$svg = $this->renderer->run($source, 'svg');
+			$this->saveResultFile($testFilename, 'svg', $svg);
+
+			$png = $this->renderer->run($source, 'png');
+			$this->saveResultFile($testFilename, 'png', $png);
 
 			printf("| %-30s| %-8s|\n", $testFilename, round(microtime(1) - $start, 4));
 		}
