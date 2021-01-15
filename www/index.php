@@ -38,9 +38,9 @@ if (substr($_SERVER['REQUEST_URI'], 0, 3) === '/g/') {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="<?php echo __('meta-keywords'); ?>" />
 <meta name="description" content="<?php echo __('meta-description'); ?>" />
-<link rel="stylesheet" href="/css/style.min.css?<?php echo FINGERPRINT; ?>">
-<link rel="icon" type="image/png" href="/favicon.png" />
-<script src="/latex.js"></script>
+<link rel="stylesheet" href="https://mur2.co.uk/math/css/style.min.css?<?php echo FINGERPRINT; ?>">
+<link rel="icon" type="https://mur2.co.uk/math/image/png" href="/favicon.png" />
+<script src="https://mur2.co.uk/math/latex.js"></script>
 <body>
 	<div class="section" id="moto">
 		<div class="section-content">
@@ -153,7 +153,7 @@ foreach ($samples_embedding[$lang] as $hint => $sample) {
 		</div>
 	</div>
 
-	<script src="/js/scripts.min.js?<?php echo FINGERPRINT; ?>"></script>
+	<script src="https://mur2.co.uk/math/js/scripts.min.js?<?php echo FINGERPRINT; ?>"></script>
 	<script>
 		(function ready(fn) {
 			if (document.readyState != 'loading'){
