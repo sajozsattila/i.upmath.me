@@ -5,7 +5,7 @@
 
 (function (w, d) {
 	var prtcl = location.protocol,
-		ntwPath = '//i.upmath.me',
+		ntwPath = '//mur2.co.uk/math',
 		url = (prtcl === 'http:' || prtcl === 'https:') ? ntwPath : 'http:' + ntwPath,
 		im = d.implementation,
 		ext = im && im.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1") ? 'svg' : 'png';
