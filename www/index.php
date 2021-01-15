@@ -8,7 +8,7 @@ if (!defined('FINGERPRINT')) {
 	define('FINGERPRINT', '');
 }
 
-$service_url = '//i.upmath.me/';
+$service_url = '//mur2.co.uk/math/';
 $script_url = $service_url.'latex.js';
 
 $lang = $_SERVER['HTTP_HOST'] === 'tex.s2cms.ru' ? 'ru' : 'en';
@@ -16,7 +16,7 @@ $i18n = include 'lang.' . $lang . '.php';
 
 $langLinks = [
 	'ru' => '//tex.s2cms.ru/',
-	'en' => '//i.upmath.me/',
+	'en' => '//mur2.co.uk/math/',
 ];
 
 function __ ($key) {
@@ -68,7 +68,7 @@ foreach ($langLinks as $linkLang => $linkUrl) {
 			 --><a class="nav-item inside" href="#samples"><span class="nav-link"><?php echo __('examples'); ?></span></a><!--
 			 --><a class="nav-item inside" href="#faq"><span class="nav-link"><?php echo __('link-faq'); ?></span></a><!--
 			 --><a class="nav-item inside" href="#embedding"><span class="nav-link"><?php echo __('link-install'); ?></span></a><!--
-			 --><a class="nav-item" href="https://upmath.me/"><span class="nav-link"><?php echo __('page-editor'); ?></span></a>
+			 --><a class="nav-item" href="https://mur2.co.uk/math/"><span class="nav-link"><?php echo __('page-editor'); ?></span></a>
 			</div>
 		</div>
 	</div>
