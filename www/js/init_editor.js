@@ -68,7 +68,7 @@ function initTexEditor(serviceURL) {
 		if (encodedText === 'f(x)' && location.pathname === '/') {
 			return;
 		}
-		history && history.replaceState && history.replaceState(null, '', '/g/' + encodedText);
+		history && history.replaceState && history.replaceState(null, '', '/math/g/' + encodedText);
 	}
 
 	// Connect to the renderer
