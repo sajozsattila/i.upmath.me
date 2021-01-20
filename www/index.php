@@ -11,11 +11,10 @@ if (!defined('FINGERPRINT')) {
 $service_url = '//mur2.co.uk/math/';
 $script_url = $service_url.'latex.js';
 
-$lang = $_SERVER['HTTP_HOST'] === 'tex.s2cms.ru' ? 'ru' : 'en';
+$lang = $_SERVER['HTTP_HOST'] === 'en';
 $i18n = include 'lang.' . $lang . '.php';
 
 $langLinks = [
-	'ru' => '//tex.s2cms.ru/',
 	'en' => '//mur2.co.uk/math/',
 ];
 
