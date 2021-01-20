@@ -38,7 +38,7 @@ if (substr($_SERVER['REQUEST_URI'], 0, 3) === '/g/') {
 <meta name="keywords" content="<?php echo __('meta-keywords'); ?>" />
 <meta name="description" content="<?php echo __('meta-description'); ?>" />
 <link rel="stylesheet" href="https://mur2.co.uk/math/css/style.min.css?<?php echo FINGERPRINT; ?>">
-<link rel="icon" type="https://mur2.co.uk/math/image/png" href="/favicon.png" />
+<link rel="icon" type="image/png" href="https://mur2.co.uk/static/images/favicon.png" />
 <script src="https://mur2.co.uk/math/latex.js"></script>
 <body>
 	<div class="section" id="moto">
