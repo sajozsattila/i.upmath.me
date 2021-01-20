@@ -28,13 +28,13 @@ class Request
 
 	public static function createFromUri(string $uri): self
 	{
-		$parts = explode('/', $uri, 3);
+		$parts = explode('/', $uri);
 		if (count($parts) < 3) {
 			throw new \InvalidArgumentException('Incorrect input format.');
 		}
 
-		$extension = $parts[1];
-		$formula   = rawurldecode($parts[2]);
+		$extension = $parts[2];
+		$formula   = rawurldecode($parts[3]);
 		$formula   = trim($formula);
 
 		return new static($formula, $extension);
