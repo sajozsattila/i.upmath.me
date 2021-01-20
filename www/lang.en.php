@@ -10,6 +10,7 @@
 
 return [
 	'title'               => 'LaTeX equations for web',
+	'icon'                => 'https://mur2.co.uk/static/images/favicon.png',
 	'meta-keywords'       => 'LaTeX, equations, SVG-images, formula, convert latex equations to images',
 	'meta-description'    => 'Convert LaTeX equations to SVG images ready for publishing on the web.',
 	'header'              => 'LaTeX equations for&nbsp;web',
