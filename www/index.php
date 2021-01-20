@@ -11,7 +11,7 @@ if (!defined('FINGERPRINT')) {
 $service_url = '//mur2.co.uk/math/';
 $script_url = $service_url.'latex.js';
 
-$lang = $_SERVER['HTTP_HOST'] === 'en';
+$lang = 'en';
 $i18n = include 'lang.' . $lang . '.php';
 
 $langLinks = [
