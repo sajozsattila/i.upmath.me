@@ -106,7 +106,7 @@ return [
 			<div class="question">
 				<p>In modern browsers, script loads pictures in vector format SVG and aligns formula baseline with surrounding text:</p>
 
-				<p align="center"><img src="/i/baseline_en.png" alt="" width="400" height="230" class="screenshot" style="max-width: 90vw; max-height: 51.75vw;" /></p>
+				<p align="center"><img src="https://mur2.co.uk/math/i/baseline_en.png" alt="" width="400" height="230" class="screenshot" style="max-width: 90vw; max-height: 51.75vw;" /></p>
 			</div>
 
 			<p>
