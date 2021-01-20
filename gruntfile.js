@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 					to: function (matchedWord, index, fullText, regexMatches) {
 						const host = __dirname.split('/').pop();
 
-						return host !== 'tex.s2cms.ru' ? host : 'i.upmath.me';
+						return host !== 'tex.s2cms.ru' ? host : 'mur2.co.uk/math';
 					}
 				}]
 			}
