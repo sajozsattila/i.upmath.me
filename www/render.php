@@ -61,7 +61,7 @@ $processor     = new Processor($renderer, $cacheProvider, $pngConverter);
 
 try {
 	$request = Request::createFromUri(
-		parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+		$_SERVER['REQUEST_URI']
 	);
 } catch (Exception $e) {
 	error400($isDebug ? $e->getMessage() : 'Invalid formula. Path: '.parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) );
