@@ -24,7 +24,7 @@ $delayedProcessor = new DelayedProcessor(new CacheProvider(CACHE_SUCCESS_DIR, CA
 $delayedProcessor
 	->addSVGCommand(SVGO)
 	->addSVGCommand(GZIP)
-//	->addPNGCommand(OPTIPNG)
+	->addPNGCommand(OPTIPNG)
 //	->addPNGCommand(PNGOUT)
 ;
 
